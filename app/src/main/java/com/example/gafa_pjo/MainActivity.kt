@@ -1,5 +1,6 @@
 package com.example.gafa_pjo
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnCadastro.setOnClickListener {
+            IrParaCadastro()
+        }
+
 
         window.statusBarColor = Color.parseColor("#FFFFFF")
 
@@ -59,4 +65,10 @@ class MainActivity : AppCompatActivity() {
             snackbar.show()
         },3000)
     }
+    private fun IrParaCadastro(){
+        val cadastro = Intent (this,cadastro::class.java)
+            startActivity(cadastro)
+    }
+
+
 }

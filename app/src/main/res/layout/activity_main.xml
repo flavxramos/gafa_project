@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/DarkCyanGreen"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
 
     <View
         android:id="@+id/containerTop"
@@ -20,16 +21,20 @@
         android:layout_height="200dp"
         android:background="@drawable/background_view_top"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/codecraft"
-        app:layout_constraintTop_toTopOf="@id/containerTop"
-        app:layout_constraintStart_toStartOf="@id/containerTop"
+        android:layout_width="196dp"
+        android:layout_height="153dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="@id/containerTop"
         app:layout_constraintEnd_toEndOf="@id/containerTop"
-        app:layout_constraintBottom_toBottomOf="@id/containerTop"/>
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@id/containerTop"
+        app:layout_constraintTop_toTopOf="@id/containerTop"
+        app:layout_constraintVertical_bias="0.34"
+        app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputLayoutEmail"
@@ -64,65 +69,84 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputLayoutSenha"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:boxStrokeColor="@color/DarkViolet"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/red"
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/black"
-        app:errorTextColor="@color/red"
-        app:errorEnabled="true"
-        app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutEmail"
+        app:passwordToggleEnabled="true">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_senha"
-        android:inputType="numberPassword"
-        android:maxLines="1"
-        android:textSize="18sp"
-        android:background="@drawable/background_edit_text"
-        android:padding="15dp"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edit_text"
+            android:hint="@string/hint_senha"
+            android:inputType="numberPassword"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_Entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_button_login"
-        android:textAllCaps="false"
-        android:padding="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/background_button_selector"
         android:enabled="true"
-        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutSenha"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="15dp"
+        android:text="@string/txt_btn_login"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelaCadastro" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/background_button_selector"
+        android:enabled="true"
+        android:padding="15dp"
+        android:text="@string/txt_btn_cadastro"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelaCadastro" />
 
     <TextView
         android:id="@+id/txtTelaCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_tela_cadastro"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/btn_Entrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        android:gravity="right"
+        android:text="@string/txt_recuperar_senha"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutSenha" />
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -142,7 +166,7 @@
         app:layout_constraintTop_toBottomOf="@id/progressbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="135dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
